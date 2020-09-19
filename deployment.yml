@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-deployment
+  namespace: meru
+  labels:
+    app: product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-pod
+  template:
+    metadata:
+      name: product-pod
+      labels:
+        app: product-pod
+    spec:
+      containers:
+      - name: database 
+        image: gcr.io/PROJECT_ID/DB-IMAGE:TAG
+        ports:
+        - containerPort: 3306
+        imagePullPolicy: Always
+      - name: product 
+        image: gcr.io/PROJECT_ID/APP-IMAGE:TAG
+        ports:
+        - containerPort: 8081
+        imagePullPolicy: Always

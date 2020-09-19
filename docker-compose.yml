@@ -1,0 +1,28 @@
+version: "3"
+services:
+  database:
+    image: mysql/mysql-server
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: meru_product
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: localhost
+      
+  product-service:
+    image: sanjeev321/product-service:0.0.1
+    ports:
+      - "8081:8081"
+    environment:
+      EUREKA_SERVER_URL: 'http://localhost:8761/eureka/'
+      CONFIG_SERVER_URL: 'http://localhost:8090'
+    links:
+      - "database"
+
+      
+
+        
+    
+    

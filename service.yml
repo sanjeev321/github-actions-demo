@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: product-service
+  namespace: meru
+spec:
+  type: NodePort
+  selector:
+    app: product-pod
+  ports:
+  - protocol: TCP
+    port: 8081
+    nodePort: 30001
