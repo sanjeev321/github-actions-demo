@@ -17,12 +17,12 @@ spec:
     spec:
       containers:
       - name: database 
-        image: gcr.io/PROJECT_ID/DB-IMAGE:TAG
+        image: gcr.io/PROJECT_ID/DB_IMAGE:TAG
         ports:
         - containerPort: 3306
         imagePullPolicy: Always
       - name: product 
-        image: gcr.io/PROJECT_ID/APP-IMAGE:TAG
+        image: gcr.io/PROJECT_ID/APP_IMAGE:TAG
         ports:
         - containerPort: 8081
         imagePullPolicy: Always
