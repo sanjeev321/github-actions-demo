@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: product-service
-  namespace: meru
 spec:
   type: NodePort
   selector:
