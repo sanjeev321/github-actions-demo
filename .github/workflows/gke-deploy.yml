@@ -26,6 +26,7 @@ env:
   APP_IMAGE: product-service
   DB_IMAGE: database
   SONAR_URL: http://34.70.47.0/sonar/
+  NEXUS_SNAPSHOT_URL: http://35.222.170.166/nexus/repository/maven-snapshots/
 
 jobs:
   setup-build-publish-deploy:
@@ -42,7 +43,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file pom.xml
+      run: mvn -B deploy sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dnexus.snapshot.url=$SONAR_URL --file pom.xml
   
     # Setup gcloud CLI
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
