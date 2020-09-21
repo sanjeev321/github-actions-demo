@@ -25,6 +25,7 @@ env:
   DEPLOYMENT_NAME: product-deployment # TODO: update to deployment name
   APP_IMAGE: product-service
   DB_IMAGE: database
+  SONAR_URL: 
 
 jobs:
   setup-build-publish-deploy:
@@ -41,7 +42,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file pom.xml
   
     # Setup gcloud CLI
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
