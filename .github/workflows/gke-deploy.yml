@@ -25,7 +25,7 @@ env:
   DEPLOYMENT_NAME: product-deployment # TODO: update to deployment name
   APP_IMAGE: product-service
   DB_IMAGE: database
-  SONAR_URL: 
+  SONAR_URL: http://34.70.47.0/sonar/
 
 jobs:
   setup-build-publish-deploy:
