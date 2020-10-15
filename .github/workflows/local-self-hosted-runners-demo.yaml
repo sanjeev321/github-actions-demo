@@ -1,5 +1,5 @@
 
-name: Self Hosted Runner Demo
+name: Local MAC Self Hosted Runner Demo
 
 on:
   push:
