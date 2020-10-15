@@ -25,8 +25,8 @@ env:
   DEPLOYMENT_NAME: product-deployment # TODO: update to deployment name
   APP_IMAGE: product-service
   DB_IMAGE: database
-  SONAR_URL: http://34.123.131.213/sonar/
-  NEXUS_SNAPSHOT_URL: http://35.226.122.25/nexus/repository/maven-snapshots/
+  SONAR_URL: http://104.197.201.197/sonar/
+  NEXUS_SNAPSHOT_URL: http://104.154.195.168/nexus/repository/maven-snapshots/
 
 jobs:
   setup-build-publish-deploy:
